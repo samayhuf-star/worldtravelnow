@@ -11,7 +11,7 @@
 :root{--p1:#7c3aed;--p2:#a78bfa;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:#0d0a1a;color:#fff;line-height:1.6;}
+html{overflow-x:hidden;}body{font-family:'Inter',sans-serif;background:#0d0a1a;color:#fff;line-height:1.6;}
 a{text-decoration:none;}
 .aff-bar{background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);padding:7px 40px;font-size:12px;color:rgba(255,255,255,0.45);text-align:center;}
 .aff-bar a{color:var(--p2);}
@@ -48,9 +48,9 @@ a{text-decoration:none;}
 .fsw-tab.active{background:linear-gradient(135deg,var(--p2),var(--p1));color:#fff;border-color:transparent;}
 .fsw-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .fsw-row.four{grid-template-columns:1fr 1fr 1fr 1fr;}
-.fsw-field{position:relative;}
+.fsw-field{position:relative;min-width:0;}
 .fsw-field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.35);margin-bottom:6px;}
-.fsw-field input,.fsw-field select{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:13px 16px;font-size:15px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.fsw-field input,.fsw-field select{width:100%;min-width:0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:13px 16px;font-size:15px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
 .fsw-field input:focus,.fsw-field select:focus{border-color:var(--p2);}
 .fsw-field select option{background:#1a1a2e;color:#fff;}
 .fsw-ac{position:absolute;top:100%;left:0;right:0;background:#1e2235;border:1px solid rgba(255,255,255,0.12);border-radius:12px;z-index:100;max-height:220px;overflow-y:auto;display:none;margin-top:4px;}
