@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Travel Blog | WorldTravel Now</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--p1:#7c3aed;--p2:#a78bfa;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#0d0a1a;color:#fff;line-height:1.6;}
+a{text-decoration:none;}
+.aff-bar{background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);padding:7px 40px;font-size:12px;color:rgba(255,255,255,0.45);text-align:center;}
+.aff-bar a{color:var(--p2);}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:0 50px;height:70px;background:rgba(10,14,26,0.97);border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);}
+.logo{font-size:22px;font-weight:800;color:#fff;} .logo span{color:var(--p2);}
+.main-nav{display:flex;align-items:center;gap:4px;}
+.main-nav a{color:rgba(255,255,255,0.65);font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all 0.2s;}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,0.07);}
+.header-actions{display:flex;align-items:center;gap:14px;}
+.iata-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;white-space:nowrap;}
+.header-phone{color:var(--p2);font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.btn-primary{background:linear-gradient(135deg,var(--p2),var(--p1));color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:700;transition:opacity 0.2s;white-space:nowrap;display:inline-block;}
+.btn-primary:hover{opacity:0.88;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;background:#0d1220;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;}
+.mobile-nav a{color:rgba(255,255,255,0.7);font-size:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:500;}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+.site-footer{background:#060a14;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;padding:60px 40px 40px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;margin:14px 0 18px;}
+.footer-brand .phone-link{color:var(--p2);font-weight:700;font-size:14px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+.footer-col a{display:block;color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:10px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--p2);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 40px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2);max-width:1200px;margin:0 auto;}
+@media(max-width:900px){.site-header{padding:0 20px;}.main-nav,.iata-pill,.btn-primary{display:none;}.hamburger{display:flex;}.footer-top{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.footer-top{grid-template-columns:1fr;padding:40px 20px;}}
+
+.blog-hero{background:linear-gradient(160deg,#060a18,#0a1535);padding:70px 40px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.07);}
+.blog-hero h1{font-size:clamp(30px,4vw,52px);font-weight:800;margin-bottom:12px;}
+.blog-hero h1 span{color:var(--p2);}
+.blog-hero p{color:rgba(255,255,255,0.5);font-size:16px;max-width:540px;margin:0 auto;}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:28px;max-width:1200px;margin:0 auto;padding:70px 40px;}
+.blog-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:18px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;}
+.blog-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,0.2);}
+.card-img-link{display:block;position:relative;}
+.card-img-link img{width:100%;height:220px;object-fit:cover;display:block;}
+.cat-badge{position:absolute;top:14px;left:14px;background:var(--p1);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:50px;text-transform:uppercase;letter-spacing:0.5px;}
+.card-body{padding:24px;}
+.card-meta{display:flex;gap:16px;font-size:12px;color:rgba(255,255,255,0.35);margin-bottom:10px;}
+.card-body h2{font-size:17px;font-weight:700;line-height:1.35;margin-bottom:10px;}
+.card-body h2 a{color:#fff;transition:color 0.2s;}
+.card-body h2 a:hover{color:var(--p2);}
+.card-body p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:16px;}
+.read-more{color:var(--p2);font-size:13px;font-weight:600;}
+@media(max-width:600px){.blog-grid{padding:40px 20px;grid-template-columns:1fr;}}
+</style></head><body>
+<div class="aff-bar">&#9992;&#65039; <strong>Affiliate Disclosure:</strong> We may earn a small commission when you book through our links. <a href="privacy.html">Learn more</a></div>
+<header class="site-header">
+  <a href="index.html" class="logo">WorldTravel<span>Now</span></a>
+  <nav class="main-nav">
+    <a href="index.html">Home</a><a href="packages.html">Tour Packages</a><a href="blog.html" class="active">Blog</a><a href="about.html">About Us</a><a href="contact.html">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <span class="iata-pill">&#10004; IATA #14016398</span>
+    <a href="tel:+18668120123" class="header-phone">&#128222; (866) 812-0123</a>
+    <a href="tel:+18668120123" class="btn-primary">Book Now</a>
+  </div>
+  <div class="hamburger" id="hBtn"><span></span><span></span><span></span></div>
+</header>
+<nav class="mobile-nav" id="mNav">
+  <a href="index.html">&#127968; Home</a><a href="packages.html">&#127758; Tour Packages</a><a href="blog.html">&#128221; Blog</a>
+  <a href="about.html">&#8505;&#65039; About</a><a href="contact.html">&#128222; Contact</a>
+  <a href="privacy.html">&#128274; Privacy</a><a href="terms.html">&#128196; Terms</a><a href="refund.html">&#128179; Refund</a>
+</nav>
+<section class="blog-hero"><h1>Our <span>Travel Blog</span></h1><p>Expert guides, hidden gems, and travel inspiration from around the world.</p></section>
+<div class="blog-grid"><article class="blog-card"><a href="blog-paris-ultimate-travel-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/91ef361d0_generated_image.png" alt="Paris Eiffel Tower at golden hour" loading="lazy"/><span class="cat-badge">Europe</span></a><div class="card-body"><div class="card-meta"><span>&#128197; March 10, 2026</span><span>&#9200; 6 min read</span></div><h2><a href="blog-paris-ultimate-travel-guide.html">Paris: The Ultimate Travel Guide for First-Time Visitors</a></h2><p>From the Eiffel Tower to hidden bistros, everything you need to know before your first trip to the City of Light.</p><a href="blog-paris-ultimate-travel-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-bali-travel-guide-hidden-gems.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/4f050664d_generated_image.png" alt="Bali rice terraces at sunset" loading="lazy"/><span class="cat-badge">Asia</span></a><div class="card-body"><div class="card-meta"><span>&#128197; March 8, 2026</span><span>&#9200; 7 min read</span></div><h2><a href="blog-bali-travel-guide-hidden-gems.html">Bali Beyond the Beaches: Hidden Gems You Need to Explore</a></h2><p>Bali is more than Instagram sunsets. Discover the temples, rice terraces, and local villages most tourists never find.</p><a href="blog-bali-travel-guide-hidden-gems.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-new-york-city-first-timer-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/75fee6d9a_generated_image.png" alt="NYC skyline at night" loading="lazy"/><span class="cat-badge">North America</span></a><div class="card-body"><div class="card-meta"><span>&#128197; March 6, 2026</span><span>&#9200; 6 min read</span></div><h2><a href="blog-new-york-city-first-timer-guide.html">New York City: A First-Timer's Complete Guide</a></h2><p>NYC can be overwhelming. Here's how to navigate the world's most exciting city like a seasoned New Yorker.</p><a href="blog-new-york-city-first-timer-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-maldives-luxury-budget-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/affda95ee_generated_image.png" alt="Maldives overwater bungalows" loading="lazy"/><span class="cat-badge">Indian Ocean</span></a><div class="card-body"><div class="card-meta"><span>&#128197; March 4, 2026</span><span>&#9200; 7 min read</span></div><h2><a href="blog-maldives-luxury-budget-guide.html">Maldives on a Budget: Luxury Vibes Without the Price Tag</a></h2><p>Think the Maldives is only for millionaires? Think again. Here's how to experience paradise on a budget.</p><a href="blog-maldives-luxury-budget-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-machu-picchu-complete-travel-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/1ae5a6fa3_generated_image.png" alt="Machu Picchu at sunrise" loading="lazy"/><span class="cat-badge">South America</span></a><div class="card-body"><div class="card-meta"><span>&#128197; March 2, 2026</span><span>&#9200; 8 min read</span></div><h2><a href="blog-machu-picchu-complete-travel-guide.html">Machu Picchu: Everything You Need to Know Before You Go</a></h2><p>The ancient Inca citadel is one of the world's most awe-inspiring sites. Here's how to plan the perfect visit.</p><a href="blog-machu-picchu-complete-travel-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-tokyo-travel-guide-for-beginners.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/176d63c90_generated_image.png" alt="Tokyo cherry blossoms and neon" loading="lazy"/><span class="cat-badge">Asia</span></a><div class="card-body"><div class="card-meta"><span>&#128197; February 28, 2026</span><span>&#9200; 7 min read</span></div><h2><a href="blog-tokyo-travel-guide-for-beginners.html">Tokyo Travel Guide: Your First 72 Hours in Japan's Capital</a></h2><p>Tokyo is like no city on earth — ultra-modern and deeply traditional. Here's how to dive in.</p><a href="blog-tokyo-travel-guide-for-beginners.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-santorini-travel-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/7c0db11fe_generated_image.png" alt="Santorini blue domes at sunset" loading="lazy"/><span class="cat-badge">Europe</span></a><div class="card-body"><div class="card-meta"><span>&#128197; February 25, 2026</span><span>&#9200; 6 min read</span></div><h2><a href="blog-santorini-travel-guide.html">Santorini Travel Guide: Beyond the Instagram Photos</a></h2><p>Santorini is even more beautiful in person than in the photos — but only if you know where to go.</p><a href="blog-santorini-travel-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-kenya-safari-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/9c25eb77e_generated_image.png" alt="Elephants at sunset Kenya" loading="lazy"/><span class="cat-badge">Africa</span></a><div class="card-body"><div class="card-meta"><span>&#128197; February 22, 2026</span><span>&#9200; 8 min read</span></div><h2><a href="blog-kenya-safari-guide.html">Kenya Safari Guide: How to Plan the Trip of a Lifetime</a></h2><p>Watching lions hunt on the Maasai Mara at dawn is the kind of experience that changes your perspective.</p><a href="blog-kenya-safari-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-dubai-travel-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/51359de0e_generated_image.png" alt="Dubai Burj Khalifa at night" loading="lazy"/><span class="cat-badge">Middle East</span></a><div class="card-body"><div class="card-meta"><span>&#128197; February 20, 2026</span><span>&#9200; 7 min read</span></div><h2><a href="blog-dubai-travel-guide.html">Dubai Travel Guide: Everything You Need to Know</a></h2><p>Dubai turned desert into skyscrapers in a single generation. Here's your complete guide.</p><a href="blog-dubai-travel-guide.html" class="read-more">Read More &rarr;</a></div></article><article class="blog-card"><a href="blog-iceland-northern-lights-guide.html" class="card-img-link"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/1d6b4be99_generated_image.png" alt="Northern Lights Iceland" loading="lazy"/><span class="cat-badge">Europe</span></a><div class="card-body"><div class="card-meta"><span>&#128197; February 18, 2026</span><span>&#9200; 7 min read</span></div><h2><a href="blog-iceland-northern-lights-guide.html">Chasing the Northern Lights in Iceland: The Complete Guide</a></h2><p>Seeing the Aurora Borealis dance across an Icelandic sky is on almost every traveler's bucket list.</p><a href="blog-iceland-northern-lights-guide.html" class="read-more">Read More &rarr;</a></div></article></div>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand"><div class="logo">WorldTravel<span>Now</span></div><p>Your trusted travel partner for flights and unforgettable journeys worldwide.</p><a href="tel:+18668120123" class="phone-link">&#128222; (866) 812-0123</a></div>
+    <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="packages.html">Packages</a><a href="blog.html">Blog</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+    <div class="footer-col"><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="refund.html">Refund Policy</a></div>
+    <div class="footer-col"><h4>Contact</h4><a href="tel:+18668120123">(866) 812-0123</a><a href="contact.html">Send a Message</a></div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 WorldTravel Now. All rights reserved.</div>
+</footer>
+<script>(function(){var h=document.getElementById('hBtn'),n=document.getElementById('mNav');if(h&&n)h.addEventListener('click',function(){n.classList.toggle('open');});})();</script></body></html>

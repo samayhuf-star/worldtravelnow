@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>WorldTravel Now | Cheap Flights &amp; Travel Deals</title>
+<meta name="description" content="Your World. Your Journey. Right Now. Find cheap flights and great travel deals at WorldTravel Now."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--p1:#7c3aed;--p2:#a78bfa;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#0d0a1a;color:#fff;line-height:1.6;}
+a{text-decoration:none;}
+.aff-bar{background:rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.07);padding:7px 40px;font-size:12px;color:rgba(255,255,255,0.45);text-align:center;}
+.aff-bar a{color:var(--p2);}
+.site-header{display:flex;align-items:center;justify-content:space-between;padding:0 50px;height:70px;background:rgba(10,14,26,0.97);border-bottom:1px solid rgba(255,255,255,0.07);position:sticky;top:0;z-index:1000;backdrop-filter:blur(14px);}
+.logo{font-size:22px;font-weight:800;color:#fff;}
+.logo span{color:var(--p2);}
+.main-nav{display:flex;align-items:center;gap:4px;}
+.main-nav a{color:rgba(255,255,255,0.65);font-size:14px;font-weight:500;padding:8px 14px;border-radius:8px;transition:all 0.2s;}
+.main-nav a:hover,.main-nav a.active{color:#fff;background:rgba(255,255,255,0.07);}
+.header-actions{display:flex;align-items:center;gap:14px;}
+.iata-pill{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.6);font-size:11px;font-weight:700;padding:5px 12px;border-radius:6px;white-space:nowrap;}
+.header-phone{color:var(--p2);font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.btn-primary{background:linear-gradient(135deg,var(--p2),var(--p1));color:#fff;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:700;transition:opacity 0.2s;white-space:nowrap;display:inline-block;}
+.btn-primary:hover{opacity:0.88;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;background:#0d1220;border-bottom:1px solid rgba(255,255,255,0.07);padding:12px 20px;}
+.mobile-nav a{color:rgba(255,255,255,0.7);font-size:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-weight:500;}
+.mobile-nav a:last-child{border-bottom:none;}
+.mobile-nav.open{display:flex;}
+/* HERO */
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:80px 40px;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0d0a1a 0%,#7c3aed22 50%,#0d0a1a 100%);}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,#7c3aed33 0%,transparent 70%);pointer-events:none;}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--p2);margin-bottom:24px;}
+.hero h1{font-size:clamp(36px,6vw,72px);font-weight:900;line-height:1.05;letter-spacing:-1.5px;margin-bottom:18px;}
+.hero h1 span{background:linear-gradient(135deg,var(--p2),var(--p1));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero p{font-size:18px;color:rgba(255,255,255,0.55);max-width:560px;margin:0 auto 40px;line-height:1.7;}
+/* SEARCH WIDGET */
+.fsw-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:32px;max-width:900px;margin:0 auto;backdrop-filter:blur(20px);}
+.fsw-tabs{display:flex;gap:8px;margin-bottom:24px;}
+.fsw-tab{padding:9px 20px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.1);background:transparent;color:rgba(255,255,255,0.5);transition:all 0.2s;}
+.fsw-tab.active{background:linear-gradient(135deg,var(--p2),var(--p1));color:#fff;border-color:transparent;}
+.fsw-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.fsw-row.four{grid-template-columns:1fr 1fr 1fr 1fr;}
+.fsw-field{position:relative;}
+.fsw-field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:rgba(255,255,255,0.35);margin-bottom:6px;}
+.fsw-field input,.fsw-field select{width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:13px 16px;font-size:15px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color 0.2s;}
+.fsw-field input:focus,.fsw-field select:focus{border-color:var(--p2);}
+.fsw-field select option{background:#1a1a2e;color:#fff;}
+.fsw-ac{position:absolute;top:100%;left:0;right:0;background:#1e2235;border:1px solid rgba(255,255,255,0.12);border-radius:12px;z-index:100;max-height:220px;overflow-y:auto;display:none;margin-top:4px;}
+.fsw-ac.show{display:block;}
+.fsw-ac-item{padding:10px 14px;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.8);transition:background 0.15s;}
+.fsw-ac-item:hover{background:rgba(255,255,255,0.07);}
+.fsw-ac-item strong{color:var(--p2);}
+.fsw-btn{width:100%;background:linear-gradient(135deg,var(--p2),var(--p1));color:#fff;border:none;border-radius:14px;padding:16px;font-size:16px;font-weight:800;cursor:pointer;transition:opacity 0.2s;margin-top:8px;}
+.fsw-btn:hover{opacity:0.88;}
+.fsw-loading{display:none;text-align:center;padding:30px;color:rgba(255,255,255,0.5);font-size:15px;}
+.fsw-loading.show{display:block;}
+.fsw-results{display:none;margin-top:20px;border-radius:16px;overflow:hidden;}
+.fsw-results.show{display:block;}
+.fsw-results iframe{width:100%;height:680px;border:none;border-radius:16px;}
+/* TRUST BAR */
+.trust-bar{display:flex;align-items:center;justify-content:center;gap:40px;padding:28px 40px;border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,0.45);font-weight:500;}
+.trust-item span.icon{font-size:20px;}
+/* FEATURES */
+.features{max-width:1200px;margin:0 auto;padding:80px 40px;}
+.section-tag{text-align:center;color:var(--p2);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+.section-title{text-align:center;font-size:clamp(26px,3.5vw,40px);font-weight:800;margin-bottom:50px;}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.feat-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:32px;transition:transform 0.25s,border-color 0.25s;}
+.feat-card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.15);}
+.feat-icon{font-size:36px;margin-bottom:16px;}
+.feat-card h3{font-size:17px;font-weight:700;margin-bottom:10px;}
+.feat-card p{font-size:14px;color:rgba(255,255,255,0.45);line-height:1.7;}
+/* DESTINATIONS */
+.destinations{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
+.dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.dest-card{position:relative;border-radius:18px;overflow:hidden;height:220px;cursor:pointer;}
+.dest-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;filter:brightness(0.65);}
+.dest-card:hover img{transform:scale(1.06);filter:brightness(0.75);}
+.dest-info{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(0deg,rgba(0,0,0,0.8),transparent);}
+.dest-info h4{font-size:16px;font-weight:700;}
+.dest-info p{font-size:12px;color:rgba(255,255,255,0.6);}
+/* BLOG PREVIEW */
+.blog-preview{max-width:1200px;margin:0 auto;padding:0 40px 80px;}
+.blog-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.bp-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:18px;overflow:hidden;transition:transform 0.25s;}
+.bp-card:hover{transform:translateY(-4px);}
+.bp-card img{width:100%;height:180px;object-fit:cover;display:block;}
+.bp-body{padding:20px;}
+.bp-cat{font-size:10px;font-weight:700;color:var(--p2);text-transform:uppercase;letter-spacing:0.5px;}
+.bp-body h3{font-size:15px;font-weight:700;margin:8px 0 6px;line-height:1.35;}
+.bp-body h3 a{color:#fff;transition:color 0.2s;}
+.bp-body h3 a:hover{color:var(--p2);}
+.bp-body p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.6;}
+.bp-read{color:var(--p2);font-size:13px;font-weight:600;display:inline-block;margin-top:12px;}
+/* CTA */
+.cta-section{background:linear-gradient(135deg,#7c3aed44,#a78bfa22);border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:80px 40px;text-align:center;}
+.cta-section h2{font-size:clamp(26px,4vw,42px);font-weight:800;margin-bottom:14px;}
+.cta-section p{font-size:16px;color:rgba(255,255,255,0.55);margin-bottom:32px;}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-outline{border:2px solid rgba(255,255,255,0.25);color:#fff;padding:14px 30px;border-radius:10px;font-size:15px;font-weight:700;transition:all 0.2s;}
+.btn-outline:hover{border-color:var(--p2);color:var(--p2);}
+/* FOOTER */
+.site-footer{background:#060a14;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto;padding:60px 40px 40px;}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;margin:14px 0 18px;}
+.footer-brand .phone-link{color:var(--p2);font-weight:700;font-size:14px;}
+.footer-col h4{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:rgba(255,255,255,0.3);margin-bottom:16px;}
+.footer-col a{display:block;color:rgba(255,255,255,0.45);font-size:13px;margin-bottom:10px;transition:color 0.2s;}
+.footer-col a:hover{color:var(--p2);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding:20px 40px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2);max-width:1200px;margin:0 auto;}
+@media(max-width:900px){
+  .site-header{padding:0 20px;}
+  .main-nav,.iata-pill,.btn-primary{display:none;}
+  .hamburger{display:flex;}
+  .features-grid{grid-template-columns:1fr;}
+  .dest-grid{grid-template-columns:1fr 1fr;}
+  .blog-preview-grid{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .fsw-row.four{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .hero{padding:60px 20px;}
+  .fsw-wrap{padding:20px;}
+  .fsw-row{grid-template-columns:1fr;}
+  .fsw-row.four{grid-template-columns:1fr 1fr;}
+  .dest-grid{grid-template-columns:1fr 1fr;}
+  .trust-bar{gap:20px;padding:20px;}
+  .features{padding:50px 20px;}
+  .destinations,.blog-preview{padding:0 20px 50px;}
+  .footer-top{grid-template-columns:1fr;padding:40px 20px;}
+}
+</style>
+</head>
+<body>
+<div class="aff-bar">&#9992;&#65039; <strong>Affiliate Disclosure:</strong> We may earn a small commission when you book through our links &mdash; at no extra cost to you. <a href="privacy.html">Learn more</a></div>
+<header class="site-header">
+  <a href="index.html" class="logo">WorldTravel<span>Now</span></a>
+  <nav class="main-nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="packages.html">Tour Packages</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="header-actions">
+    <span class="iata-pill">&#10004; IATA #14016398</span>
+    <a href="tel:+18668120123" class="header-phone">&#128222; (866) 812-0123</a>
+    <a href="tel:+18668120123" class="btn-primary">Book Now</a>
+  </div>
+  <div class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></div>
+</header>
+<nav class="mobile-nav" id="mNav">
+  <a href="index.html">&#127968; Home</a>
+  <a href="packages.html">&#127758; Tour Packages</a>
+  <a href="blog.html">&#128221; Blog</a>
+  <a href="about.html">&#8505;&#65039; About Us</a>
+  <a href="contact.html">&#128222; Contact Us</a>
+  <a href="privacy.html">&#128274; Privacy Policy</a>
+  <a href="terms.html">&#128196; Terms &amp; Conditions</a>
+  <a href="refund.html">&#128179; Refund Policy</a>
+</nav>
+
+<section class="hero" id="search">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">&#9992;&#65039; Trusted by 500,000+ travelers worldwide</div>
+    <h1>Travel the World<br/><span>For Less</span></h1>
+    <p>Find the best flight deals to any destination worldwide. Book instantly.</p>
+    <div class="fsw-wrap">
+      <div class="fsw-tabs">
+        <button class="fsw-tab active" onclick="setTab('round')">&#8644; Round Trip</button>
+        <button class="fsw-tab" onclick="setTab('one')">&#8594; One Way</button>
+      </div>
+      <div class="fsw-row">
+        <div class="fsw-field">
+          <label>From</label>
+          <input type="text" id="fsw-from" placeholder="City or airport" autocomplete="off"/>
+          <input type="hidden" id="fsw-from-code"/>
+          <div class="fsw-ac" id="fsw-from-ac"></div>
+        </div>
+        <div class="fsw-field">
+          <label>To</label>
+          <input type="text" id="fsw-to" placeholder="City or airport" autocomplete="off"/>
+          <input type="hidden" id="fsw-to-code"/>
+          <div class="fsw-ac" id="fsw-to-ac"></div>
+        </div>
+      </div>
+      <div class="fsw-row four">
+        <div class="fsw-field">
+          <label>Depart</label>
+          <input type="date" id="fsw-depart"/>
+        </div>
+        <div class="fsw-field" id="fsw-return-wrap">
+          <label>Return</label>
+          <input type="date" id="fsw-return"/>
+        </div>
+        <div class="fsw-field">
+          <label>Adults</label>
+          <select id="fsw-adults">
+            <option value="1">1 Adult</option>
+            <option value="2">2 Adults</option>
+            <option value="3">3 Adults</option>
+            <option value="4">4 Adults</option>
+            <option value="5">5 Adults</option>
+          </select>
+        </div>
+        <div class="fsw-field">
+          <label>Class</label>
+          <select id="fsw-class">
+            <option value="Y">Economy</option>
+            <option value="S">Premium Economy</option>
+            <option value="C">Business</option>
+            <option value="F">First Class</option>
+          </select>
+        </div>
+      </div>
+      <button class="fsw-btn" onclick="searchFlights()">&#128269; Search Flights</button>
+      <div class="fsw-loading" id="fsw-loading">&#9992;&#65039; Searching best fares across 200+ airlines...</div>
+      <div class="fsw-results" id="fsw-results"><iframe id="fsw-iframe" src="" title="Flight Search Results"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="icon">&#9992;&#65039;</span>500+ Airlines</div>
+  <div class="trust-item"><span class="icon">&#128176;</span>Best Price Guarantee</div>
+  <div class="trust-item"><span class="icon">&#128274;</span>Secure Booking</div>
+  <div class="trust-item"><span class="icon">&#128222;</span>24/7 Support</div>
+  <div class="trust-item"><span class="icon">&#10004;&#65039;</span>IATA Accredited</div>
+</div>
+
+<section class="features">
+  <p class="section-tag">Why Choose Us</p>
+  <h2 class="section-title">Everything You Need for the<br/>Perfect Trip</h2>
+  <div class="features-grid">
+    <div class="feat-card"><div class="feat-icon">&#128269;</div><h3>Smart Flight Search</h3><p>Compare hundreds of airlines instantly. Our search engine finds you the cheapest fares with zero hidden fees.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128176;</div><h3>Best Price Guarantee</h3><p>We search across 500+ airlines and travel sites to make sure you're getting the best possible deal every time.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#9992;&#65039;</div><h3>Flexible Travel</h3><p>Change of plans? We help you find flexible ticket options so you can travel with confidence and peace of mind.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#127758;</div><h3>Global Destinations</h3><p>From Bali to Barcelona, Tokyo to Toronto — search flights to over 5,000 destinations across 190 countries.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128274;</div><h3>Secure &amp; Trusted</h3><p>IATA accredited and trusted by over 500,000 travelers. Your booking and personal data are always protected.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128222;</div><h3>24/7 Support</h3><p>Our travel experts are available around the clock. Call us anytime at <a href="tel:+18668120123" style="color:var(--p2)">(866) 812-0123</a>.</p></div>
+  </div>
+</section>
+
+<section class="destinations">
+  <p class="section-tag">Popular Destinations</p>
+  <h2 class="section-title">Where Do You Want to Go?</h2>
+  <div class="dest-grid">
+    <div class="dest-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/91ef361d0_generated_image.png" alt="Paris"/><div class="dest-info"><h4>Paris</h4><p>Europe</p></div></div>
+    <div class="dest-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/51359de0e_generated_image.png" alt="Dubai"/><div class="dest-info"><h4>Dubai</h4><p>Middle East</p></div></div>
+    <div class="dest-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/176d63c90_generated_image.png" alt="Tokyo"/><div class="dest-info"><h4>Tokyo</h4><p>Asia</p></div></div>
+    <div class="dest-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/affda95ee_generated_image.png" alt="Maldives"/><div class="dest-info"><h4>Maldives</h4><p>Indian Ocean</p></div></div>
+  </div>
+</section>
+
+<section class="blog-preview">
+  <p class="section-tag">Travel Inspiration</p>
+  <h2 class="section-title">Latest from Our Travel Blog</h2>
+  <div class="blog-preview-grid">
+    <div class="bp-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/1d6b4be99_generated_image.png" alt="Iceland"/><div class="bp-body"><span class="bp-cat">Europe</span><h3><a href="blog-iceland-northern-lights-guide.html">Chasing the Northern Lights in Iceland</a></h3><p>Seeing the Aurora Borealis dance across an Icelandic sky is a bucket-list experience. Here's how to make it happen.</p><a href="blog-iceland-northern-lights-guide.html" class="bp-read">Read More &rarr;</a></div></div>
+    <div class="bp-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/4f050664d_generated_image.png" alt="Bali"/><div class="bp-body"><span class="bp-cat">Asia</span><h3><a href="blog-bali-travel-guide-hidden-gems.html">Bali Beyond the Beaches: Hidden Gems</a></h3><p>Bali is more than Instagram sunsets. Discover the temples, rice terraces, and villages most tourists never find.</p><a href="blog-bali-travel-guide-hidden-gems.html" class="bp-read">Read More &rarr;</a></div></div>
+    <div class="bp-card"><img src="https://media.base44.com/images/public/69b48f4696ebea88d8762651/9c25eb77e_generated_image.png" alt="Kenya"/><div class="bp-body"><span class="bp-cat">Africa</span><h3><a href="blog-kenya-safari-guide.html">Kenya Safari Guide: Trip of a Lifetime</a></h3><p>Watching lions hunt on the Maasai Mara at dawn is the kind of experience that changes your perspective on everything.</p><a href="blog-kenya-safari-guide.html" class="bp-read">Read More &rarr;</a></div></div>
+  </div>
+  <div style="text-align:center;margin-top:36px;"><a href="blog.html" class="btn-primary">View All Articles &rarr;</a></div>
+</section>
+
+<section class="cta-section">
+  <h2>Ready to Find Your Next Adventure?</h2>
+  <p>Search flights to over 5,000 destinations. Best fares. No hidden fees.</p>
+  <div class="cta-btns">
+    <a href="#search" class="btn-primary">Search Flights Now</a>
+    <a href="tel:+18668120123" class="btn-outline">&#128222; Call (866) 812-0123</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">WorldTravel<span>Now</span></div>
+      <p>Your trusted travel partner for flights, tour packages, and unforgettable journeys worldwide.</p>
+      <a href="tel:+18668120123" class="phone-link">&#128222; (866) 812-0123</a>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="packages.html">Tour Packages</a>
+      <a href="blog.html">Travel Blog</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund.html">Refund Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="tel:+18668120123">(866) 812-0123</a>
+      <a href="contact.html">Send a Message</a>
+    </div>
+  </div>
+  <div class="footer-bottom">&copy; 2026 WorldTravel Now. All rights reserved. Travel deals powered by Travelpayouts.</div>
+</footer>
+
+<script>
+var AIRPORTS = [
+  {c:"JFK",n:"New York - JFK"},{c:"LAX",n:"Los Angeles"},{c:"ORD",n:"Chicago O'Hare"},{c:"ATL",n:"Atlanta"},
+  {c:"DFW",n:"Dallas Fort Worth"},{c:"DEN",n:"Denver"},{c:"SFO",n:"San Francisco"},{c:"SEA",n:"Seattle"},
+  {c:"MIA",n:"Miami"},{c:"BOS",n:"Boston"},{c:"LAS",n:"Las Vegas"},{c:"PHX",n:"Phoenix"},
+  {c:"IAH",n:"Houston Bush"},{c:"MCO",n:"Orlando"},{c:"MSP",n:"Minneapolis"},{c:"DTW",n:"Detroit"},
+  {c:"LHR",n:"London Heathrow"},{c:"LGW",n:"London Gatwick"},{c:"CDG",n:"Paris Charles de Gaulle"},
+  {c:"AMS",n:"Amsterdam"},{c:"FRA",n:"Frankfurt"},{c:"MAD",n:"Madrid"},{c:"BCN",n:"Barcelona"},
+  {c:"FCO",n:"Rome Fiumicino"},{c:"MXP",n:"Milan Malpensa"},{c:"ZRH",n:"Zurich"},{c:"VIE",n:"Vienna"},
+  {c:"BRU",n:"Brussels"},{c:"CPH",n:"Copenhagen"},{c:"ARN",n:"Stockholm"},{c:"HEL",n:"Helsinki"},
+  {c:"OSL",n:"Oslo"},{c:"DUB",n:"Dublin"},{c:"ATH",n:"Athens"},{c:"IST",n:"Istanbul"},
+  {c:"DXB",n:"Dubai"},{c:"AUH",n:"Abu Dhabi"},{c:"DOH",n:"Doha"},{c:"RUH",n:"Riyadh"},
+  {c:"CAI",n:"Cairo"},{c:"JNB",n:"Johannesburg"},{c:"CPT",n:"Cape Town"},{c:"NBO",n:"Nairobi"},
+  {c:"BOM",n:"Mumbai"},{c:"DEL",n:"New Delhi"},{c:"BLR",n:"Bangalore"},{c:"MAA",n:"Chennai"},
+  {c:"CCU",n:"Kolkata"},{c:"HYD",n:"Hyderabad"},{c:"COK",n:"Kochi"},{c:"AMD",n:"Ahmedabad"},
+  {c:"SIN",n:"Singapore"},{c:"KUL",n:"Kuala Lumpur"},{c:"BKK",n:"Bangkok"},{c:"HKG",n:"Hong Kong"},
+  {c:"NRT",n:"Tokyo Narita"},{c:"HND",n:"Tokyo Haneda"},{c:"ICN",n:"Seoul Incheon"},{c:"PEK",n:"Beijing"},
+  {c:"PVG",n:"Shanghai Pudong"},{c:"CAN",n:"Guangzhou"},{c:"SYD",n:"Sydney"},{c:"MEL",n:"Melbourne"},
+  {c:"BNE",n:"Brisbane"},{c:"AKL",n:"Auckland"},{c:"GRU",n:"Sao Paulo"},{c:"EZE",n:"Buenos Aires"},
+  {c:"BOG",n:"Bogota"},{c:"LIM",n:"Lima"},{c:"SCL",n:"Santiago"},{c:"MEX",n:"Mexico City"},
+  {c:"YYZ",n:"Toronto"},{c:"YVR",n:"Vancouver"},{c:"YUL",n:"Montreal"},{c:"CGK",n:"Jakarta"},
+  {c:"MNL",n:"Manila"},{c:"SGN",n:"Ho Chi Minh City"},{c:"HAN",n:"Hanoi"},{c:"DAD",n:"Da Nang"},
+  {c:"CMB",n:"Colombo"},{c:"KTM",n:"Kathmandu"},{c:"DAC",n:"Dhaka"},{c:"LHE",n:"Lahore"},
+  {c:"KHI",n:"Karachi"},{c:"ISB",n:"Islamabad"},{c:"MLE",n:"Maldives Male"},{c:"TLV",n:"Tel Aviv"},
+  {c:"AMM",n:"Amman"},{c:"BEY",n:"Beirut"},{c:"KWI",n:"Kuwait"},{c:"BAH",n:"Bahrain"},
+  {c:"MCT",n:"Muscat"},{c:"ADD",n:"Addis Ababa"},{c:"LOS",n:"Lagos"},{c:"ACC",n:"Accra"},
+  {c:"CMN",n:"Casablanca"},{c:"TUN",n:"Tunis"},{c:"ALG",n:"Algiers"}
+];
+var tripType = 'round';
+function setTab(t){
+  tripType=t;
+  document.querySelectorAll('.fsw-tab').forEach(function(b,i){b.classList.toggle('active',i===(t==='round'?0:1));});
+  document.getElementById('fsw-return-wrap').style.display=t==='one'?'none':'';
+}
+function initDates(){
+  var d=new Date(); d.setDate(d.getDate()+14);
+  document.getElementById('fsw-depart').value=d.toISOString().slice(0,10);
+  d.setDate(d.getDate()+7);
+  document.getElementById('fsw-return').value=d.toISOString().slice(0,10);
+}
+initDates();
+function setupAC(inputId,codeId,acId){
+  var inp=document.getElementById(inputId);
+  var code=document.getElementById(codeId);
+  var ac=document.getElementById(acId);
+  inp.addEventListener('input',function(){
+    var q=this.value.toLowerCase().trim();
+    if(q.length<1){ac.classList.remove('show');return;}
+    var matches=AIRPORTS.filter(function(a){return a.n.toLowerCase().includes(q)||a.c.toLowerCase().includes(q);}).slice(0,8);
+    if(!matches.length){ac.classList.remove('show');return;}
+    ac.innerHTML=matches.map(function(a){return '<div class="fsw-ac-item" data-code="'+a.c+'" data-name="'+a.n+'"><strong>'+a.c+'</strong> &mdash; '+a.n+'</div>';}).join('');
+    ac.classList.add('show');
+    ac.querySelectorAll('.fsw-ac-item').forEach(function(item){
+      item.addEventListener('click',function(){
+        inp.value=this.dataset.name+' ('+this.dataset.code+')';
+        code.value=this.dataset.code;
+        ac.classList.remove('show');
+      });
+    });
+  });
+  document.addEventListener('click',function(e){if(!inp.contains(e.target)&&!ac.contains(e.target))ac.classList.remove('show');});
+}
+setupAC('fsw-from','fsw-from-code','fsw-from-ac');
+setupAC('fsw-to','fsw-to-code','fsw-to-ac');
+function searchFlights(){
+  var from=document.getElementById('fsw-from-code').value||document.getElementById('fsw-from').value.slice(0,3).toUpperCase();
+  var to=document.getElementById('fsw-to-code').value||document.getElementById('fsw-to').value.slice(0,3).toUpperCase();
+  var dep=document.getElementById('fsw-depart').value;
+  var ret=document.getElementById('fsw-return').value;
+  var adults=document.getElementById('fsw-adults').value;
+  if(!from||!to){alert('Please enter departure and destination airports.');return;}
+  if(!dep){alert('Please select a departure date.');return;}
+  var url='https://search.jetradar.com/?origin='+from+'&destination='+to+'&depart_date='+dep+'&adults='+adults+'&marker=711217&locale=en';
+  if(tripType==='round'&&ret)url+='&return_date='+ret;
+  var loading=document.getElementById('fsw-loading');
+  var results=document.getElementById('fsw-results');
+  var iframe=document.getElementById('fsw-iframe');
+  loading.classList.add('show');
+  results.classList.remove('show');
+  iframe.src=url;
+  iframe.onload=function(){loading.classList.remove('show');results.classList.add('show');results.scrollIntoView({behavior:'smooth',block:'start'});};
+}
+(function(){
+  var h=document.querySelector('.hamburger');
+  var n=document.getElementById('mNav');
+  if(h&&n)h.addEventListener('click',function(){n.classList.toggle('open');});
+})();
+</script>
+</body></html>
