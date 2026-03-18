@@ -233,7 +233,7 @@ a{text-decoration:none;}
 
 <div class="trust-bar">
   <div class="trust-item"><span class="icon">&#9992;&#65039;</span>500+ Airlines</div>
-  <div class="trust-item"><span class="icon">&#128176;</span>Best Price Guarantee</div>
+  <div class="trust-item"><span class="icon">&#128176;</span>Competitive Price Promise</div>
   <div class="trust-item"><span class="icon">&#128274;</span>Secure Booking</div>
   <div class="trust-item"><span class="icon">&#128222;</span>24/7 Support</div>
   <div class="trust-item"><span class="icon">&#10004;&#65039;</span>IATA Accredited</div>
@@ -244,7 +244,7 @@ a{text-decoration:none;}
   <h2 class="section-title">Everything You Need for the<br/>Perfect Trip</h2>
   <div class="features-grid">
     <div class="feat-card"><div class="feat-icon">&#128269;</div><h3>Smart Flight Search</h3><p>Compare hundreds of airlines instantly. Our search engine finds you the cheapest fares with zero hidden fees.</p></div>
-    <div class="feat-card"><div class="feat-icon">&#128176;</div><h3>Best Price Guarantee</h3><p>We search across 500+ airlines and travel sites to make sure you're getting the best possible deal every time.</p></div>
+    <div class="feat-card"><div class="feat-icon">&#128176;</div><h3>Competitive Price Promise</h3><p>We search across 500+ airlines and travel sites to make sure you're getting the best possible deal every time.</p></div>
     <div class="feat-card"><div class="feat-icon">&#9992;&#65039;</div><h3>Flexible Travel</h3><p>Change of plans? We help you find flexible ticket options so you can travel with confidence and peace of mind.</p></div>
     <div class="feat-card"><div class="feat-icon">&#127758;</div><h3>Global Destinations</h3><p>From Bali to Barcelona, Tokyo to Toronto — search flights to over 5,000 destinations across 190 countries.</p></div>
     <div class="feat-card"><div class="feat-icon">&#128274;</div><h3>Secure &amp; Trusted</h3><p>IATA accredited and trusted by over 500,000 travelers. Your booking and personal data are always protected.</p></div>
@@ -401,4 +401,25 @@ function searchFlights(){
   if(h&&n)h.addEventListener('click',function(){n.classList.toggle('open');});
 })();
 </script>
+
+<!-- Cookie Consent Banner -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#0d1220;border-top:1px solid rgba(255,255,255,0.12);padding:18px 30px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;box-shadow:0 -4px 30px rgba(0,0,0,0.5);">
+  <div style="flex:1;min-width:220px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6;">
+    🍪 We use cookies to improve your experience, analyze traffic, and serve personalized ads via Google. By continuing, you agree to our <a href="privacy.html" style="color:#a78bfa;text-decoration:underline;">Privacy Policy</a>.
+  </div>
+  <div style="display:flex;gap:10px;flex-shrink:0;">
+    <button onclick="acceptCookies()" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;">Accept All</button>
+    <button onclick="declineCookies()" style="background:rgba(255,255,255,0.07);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.15);padding:10px 18px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;">Decline</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(!localStorage.getItem('cookieConsent')){
+    document.getElementById('cookieBanner').style.display='flex';
+  }
+})();
+function acceptCookies(){localStorage.setItem('cookieConsent','accepted');document.getElementById('cookieBanner').style.display='none';}
+function declineCookies(){localStorage.setItem('cookieConsent','declined');document.getElementById('cookieBanner').style.display='none';}
+</script>
+
 </body></html>
